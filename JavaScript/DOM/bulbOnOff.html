@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bulb Js</title>
+  </head>
+  <body>
+    <img id="imgonoff" src="bulboff.jpg" height="20%" width="20%" />
+    <button type="button" onclick="imgonoff()">Turn On Or Off</button>
+    <script>
+      function imgonoff() {
+        var image = document.getElementById("imgonoff");
+        if (image.src.match("bulboff")) {
+          image.src = "bulbon.jpg";
+        } else {
+          image.src = "bulboff.jpg";
+        }
+      }
+    </script>
+  </body>
+</html>

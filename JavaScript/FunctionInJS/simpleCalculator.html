@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Calculator</title>
+  </head>
+  <body>
+    <script>
+        var a = 9,
+        b = 3;
+      function Addition() {
+        
+        document.write(a + b + "<br>");
+      }
+
+      function substraction(a, b) {
+        document.write(a - b + "<br>");
+      }
+
+      function Division() {
+        return a / b;
+      }
+
+      function Multiplication(a, b) {
+        return a * b;
+      }
+      document.write("<h3>Addition Of Two Number is</h3><br>");
+      Addition();
+      document.write("<h3>substraction Of Two Number is</h3><br>");
+      substraction(a,b);
+      document.write("<h3>Division Of Two Number is</h3><br>");
+      document.write(Division());
+
+      document.write("<h3>Multiplication Of Two Number is</h3><br>");
+      document.write(Multiplication(a,b));
+    </script>
+  </body>
+</html>

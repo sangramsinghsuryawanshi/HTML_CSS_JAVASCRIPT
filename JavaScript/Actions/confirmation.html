@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>confirm Event</title>
+  </head>
+  <body>
+    <form action="">
+      <label for="">What is 34*4? </label><br><br>
+      <input
+        type="number"
+        id="number"
+        placeholder="Enter your Answer"
+        required
+      /><br><br>
+      <button onclick="table()">submit</button>
+
+      <script>
+        function table() {
+          let num = document.getElementById("number").value;
+          var n = confirm("Are you sure with your answer: " +num+"?");
+          if (n == true && num == 136) {
+            alert("Your Answer is Wright..");
+          } else {
+            alert("Your Answer is Wrong..");
+          }
+        }
+      </script>
+    </form>
+  </body>
+</html>

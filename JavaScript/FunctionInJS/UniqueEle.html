@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unique Element</title>
+  </head>
+  <body>
+    <h1>Find Unique Element</h1>
+    <script>
+      let arr = [1, 1, 1, 2, 2, 3, 4, 5, 5];
+      document.write("Given array is: ", arr);
+      document.write("<br>");
+      for (let i = 0; i < arr.length; i++) {
+        let cnt = 0;
+        for (let j = i + 1; j < arr.length; j++) {
+          if (arr[i] == arr[j]) {
+            arr[j] = 0;
+            cnt++;
+          }
+        }
+        if (arr[i] != 0 && cnt == 0) document.write(arr[i] + " ");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>promote Event || Krishnamuthi number</title>
+  </head>
+  <body>
+    <form action="">
+      <button onclick="table()" style="color: chocolate;width: 10px,30px; border-radius: 12px; box-shadow: 12px 14px 20px;">promote Krishnamuthi number</button>
+
+      <script>
+        function table() {
+          var n = prompt('Enter any number to check Krishnamuthi..!');
+         
+          let sum=0;
+          let lastdidgit=0;
+          let rem=0;
+          for(let i=n;i!=0;i=Math.floor(i/10)){
+            rem=i%10;
+            let fact=1;
+            for(let j=1;j<=rem;j++){
+                fact*=j;
+            }
+            sum+=fact;
+          }
+          if(sum==n)
+          {
+            alert(n + " is a Krishnamuthi number");
+          }
+          else{
+            alert(n + " is a not Krishnamuthi number");
+          }
+        }
+      </script>
+    </form>
+  </body>
+</html>

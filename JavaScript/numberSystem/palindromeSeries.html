@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palindrome Series</title>
+  </head>
+  <body>
+    <h1>Palindrome Series</h1>
+    <script>
+      let n = 10;
+      let n1 = 300;
+      let cnt = 0,
+        sum = 0;
+      for (let i = n; i <= n1; i++) {
+        let rem = 0,
+          rev = 0,
+          og = i;
+        for (; og != 0; og = Math.floor(og / 10)) {
+          rem = og % 10;
+          rev = rev * 10 + rem;
+        }
+        if (rev == i) {
+          sum += i;
+          cnt++;
+          document.write(i + " ");
+          document.write("<br>");
+        }
+      }
+      document.write("Sum of Given palindrome series is: ", sum);
+      document.write("<br>");
+      document.write("Count of Given palindrome series is: ", cnt);
+    </script>
+  </body>
+</html>

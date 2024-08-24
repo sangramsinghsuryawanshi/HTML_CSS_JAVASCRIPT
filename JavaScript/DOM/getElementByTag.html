@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetElementByTag</title>
+</head>
+<body>
+    <h1>Find Count of Tag h1</h1>
+    <h1>Find Count of Tag h1</h1>
+    <h1>Find Count of Tag h1</h1>
+    <h1>Find Count of Tag h1</h1>
+    <p>Find Count of Tag p</p>
+    <p>Find Count of Tag p</p>
+    <p>Find Count of Tag p</p>
+    <p>Find Count of Tag p</p>
+    <p>Find Count of Tag p</p>
+    <button type="button" onclick="ptag()">P Tag Count</button>
+    <button type="button" onclick="h1tag()">H1 Tag Count</button>
+    <script>
+        function ptag(){
+            var pt = document.getElementsByTagName("p");
+            alert("Count of p tag is: "+pt.length);
+        }
+        function h1tag(){
+            var h1t = document.getElementsByTagName("h1");
+            alert("Count of h1 tag is: "+h1t.length);
+        }
+    </script>
+</body>
+</html>

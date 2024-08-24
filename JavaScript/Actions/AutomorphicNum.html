@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>promote Event || Automorphic number</title>
+  </head>
+  <body>
+    <form action="">
+      <button onclick="table()" style="color: chocolate;width: 10px,30px; border-radius: 12px; box-shadow: 12px 14px 20px;">promote automorphic number</button>
+
+      <script>
+        function table() {
+          var n = prompt('Enter any number to check automorphic..!');
+          let cnt=0;
+          let sq=n*n;
+          let lastdidgit=0;
+          for(let i=n;i!=0;i=Math.floor(i/10)){
+            cnt++;
+          }
+          lastdidgit=Math.floor(sq%(Math.pow(10,cnt)));
+          if(lastdidgit==n)
+          {
+            alert(n + " is a automorphic number");
+          }
+          else{
+            alert(n + " is a not automorphic number");
+          }
+        }
+      </script>
+    </form>
+  </body>
+</html>

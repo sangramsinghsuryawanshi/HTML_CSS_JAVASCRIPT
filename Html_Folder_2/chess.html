@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .chess-board {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            grid-template-rows: repeat(8, 50px);
+            border: 2px solid #333;
+        }
+
+        .square {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            position: relative;
+        }
+
+        .white {
+            background-color: #fff;
+        }
+
+        .black {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .piece {
+            cursor: pointer;
+        }
+
+        .highlight {
+            background-color: yellow !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="chess-board"></div>
+    <script>
+        const chessBoard = document.querySelector('.chess-board');
+        const pieces = {
+            '8': ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜'],
+            '7': ['♟', '♟', '♟', '♟', '♟', '♟', '♟', '♟'],
+            '2': ['♙', '♙', '♙', '♙', '♙', '♙', '♙', '♙'],
+            '1': ['♖', '♘', '♗', '♕', '♔', '♗', '♘', '♖']
+        };
+
+        let selectedPiece = null;
+        let selectedSquare = null;
+
+        function createChessBoard() {
+            for (let row = 8; row >= 1; row--) {
+                for (let col = 1; col <= 8; col++) {
+                    const square = document.createElement('div');
+                    square.classList.add('square');
+                    if ((row + col) % 2 === 0) {
+                        square.classList.add('white');
+                    } else {
+                        square.classList.add('black');
+                    }
+                    
+                    square.dataset.row = row;
+                    square.dataset.col = col;
+
+                    // Add pieces
+                    if (pieces[row] && pieces[row][col - 1]) {
+                        const piece = document.createElement('div');
+                        piece.textContent = pieces[row][col - 1];
+                        piece.classList.add('piece');
+                        square.appendChild(piece);
+                    }
+                    
+                    square.addEventListener('click', onSquareClick);
+                    chessBoard.appendChild(square);
+                }
+            }
+        }
+
+        function onSquareClick(event) {
+            const square = event.currentTarget;
+
+            if (selectedPiece) {
+                movePiece(square);
+                clearHighlights();
+                selectedPiece = null;
+                selectedSquare = null;
+            } else {
+                selectPiece(square);
+            }
+        }
+
+        function selectPiece(square) {
+            const piece = square.querySelector('.piece');
+            if (piece) {
+                selectedPiece = piece;
+                selectedSquare = square;
+                highlightMoves(square);
+            }
+        }
+
+        function movePiece(square) {
+            if (square !== selectedSquare) {
+                const piece = square.querySelector('.piece');
+                if (piece) {
+                    square.removeChild(piece);
+                }
+                square.appendChild(selectedPiece);
+            }
+        }
+
+        function highlightMoves(square) {
+            const row = parseInt(square.dataset.row, 10);
+            const col = parseInt(square.dataset.col, 10);
+            clearHighlights();
+            const possibleMoves = getPossibleMoves(row, col);
+
+            possibleMoves.forEach(move => {
+                const targetSquare = document.querySelector(`.square[data-row='${move.row}'][data-col='${move.col}']`);
+                targetSquare.classList.add('highlight');
+            });
+        }
+
+        function clearHighlights() {
+            const highlightedSquares = document.querySelectorAll('.highlight');
+            highlightedSquares.forEach(square => square.classList.remove('highlight'));
+        }
+
+        function getPossibleMoves(row, col) {
+            // Simplified example: only moves for pawns
+            const moves = [];
+            if (selectedPiece.textContent === '♙' && row < 8) {
+                moves.push({ row: row + 1, col: col });
+                if (row === 2) {
+                    moves.push({ row: row + 2, col: col });
+                }
+            } else if (selectedPiece.textContent === '♟' && row > 1) {
+                moves.push({ row: row - 1, col: col });
+                if (row === 7) {
+                    moves.push({ row: row - 2, col: col });
+                }
+            }
+            // Add more rules for other pieces
+            return moves;
+        }
+
+        createChessBoard();
+    </script>
+</body>
+</html>

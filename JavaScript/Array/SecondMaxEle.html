@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Second Max Element</title>
+  </head>
+  <body>
+    <h1>Q.Find Second Max Element?</h1>
+    <script>
+      let arr = [1, 2, 3, 4, 7, 5, 8];
+      document.write("Given array is: ", arr);
+      document.write("<br>Second max element is:");
+      let max = -122345;
+      let smax = -12345;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > max) {
+          smax = max;
+          max = arr[i];
+        } else if (arr[i] > smax && arr[i] != max) {
+          smax = arr[i];
+        }
+      }
+      document.write(smax);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check Element</title>
+  </head>
+  <body>
+    <h1>Check Element is Present or not.?</h1>
+    <script>
+      let a = [1, 2, 3, 4, 5, 6, 7, 56, 42];
+      document.write("Given Array is: ", a);
+      document.write("<br>");
+      document.write("<h3>-------------------------------</h3>");
+      let k = 2,cnt=0;
+      document.write("Given Element is: ", k);
+      document.write("<br>");
+      document.write("<h3>-------------------------------</h3>");
+      for (let i = 0; i < a.length; i++) {
+        if (a[i] == k) {
+          document.write("Given Element is present: ", k);
+        } else {
+          cnt++;
+        }
+      }
+      if (cnt == a.length) {
+        document.write("Given Element is not present: ", k);
+      }
+      document.write("<br>");
+      document.write("<h3>-------------------------------</h3>");
+    </script>
+  </body>
+</html>

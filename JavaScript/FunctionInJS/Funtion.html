@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function in JS</title>
+  </head>
+  <body>
+    <script>
+      function one() {
+        document.write("Function one invoked..!<br>");
+      }
+
+      function two(a, b) {
+        document.write("Function two invoked: "+(a + b)+ "<br>");
+      }
+
+      function three() {
+        return "Function three invoked..!<br>";
+      }
+
+      function four(a, b) {
+        return "Function four invoked: "+(a + b)+ "<br>";
+      }
+      document.write(
+        "<h3>Function with no return type and no argument</h3><br>"
+      );
+      one();
+      document.write(
+        "<h3>Function with no return type and with argument</h3><br>"
+      );
+      two(4, 3);
+      document.write(
+        "<h3>Function with  return type and with no argument</h3><br>"
+      );
+      document.write(three());
+
+      document.write(
+        "<h3>Function with  return type and with argument</h3><br>"
+      );
+      document.write(four(3, 6));
+    </script>
+  </body>
+</html>

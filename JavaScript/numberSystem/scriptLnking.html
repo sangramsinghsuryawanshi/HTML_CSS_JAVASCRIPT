@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome</title>
+</head>
+<body>
+    <h1>Palindrome Program...</h1>
+</body>
+<script>
+
+    let n=121;
+    let rev=0;
+    for(let i=n;i!=0;i=Math.floor(i/10))
+    {
+        let rem = i%10;
+        rev=(rev*10)+rem;
+    }
+    if(rev==n)
+    {
+        document.write("Given number is palindrome");
+    }
+    else
+    {
+        document.write("Given number is not palindrome");
+    }
+
+</script>
+</html>
