@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirm Password</title>
+    <style>
+        body{
+            height: 100vh;
+            text-align: center;
+            background-color: darkgoldenrod;
+        }
+        form{
+            border: 2px solid black;
+            padding: 20px;
+            margin-top: 10%;
+            box-shadow: 12px 20px 14px;
+            width: 20%;
+            margin-left: 40%;
+            background-color: bisque;
+        }
+        label{
+           font-size: 15px;
+           font-weight: bold; 
+        }
+        input{
+            border: 2px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        button{
+            border: none;
+            padding: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+            background-color: chocolate;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+    </style>
+  </head>
+  <body>
+    <form onsubmit="return myfun()">
+        <h1>Login Form</h1>
+      <label for="">Name</label><br /><br />
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter your name"
+      /><br /><br />
+      <label for="">Password</label><br /><br />
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter your password"
+        required
+      /><br /><br />
+      <label for="">Confirm Password</label><br /><br />
+      <input
+        type="password"
+        id="cpassword"
+        placeholder="confirm your password"
+        required
+      /><br /><br />
+      <button type="submit">Login</button>
+
+      <script>
+        function myfun() {
+          var name = document.getElementById("name").value;
+          var pass = document.getElementById("password").value;
+          var cpass = document.getElementById("cpassword").value;
+          if (name == null || name == "") {
+            alert("Name Should not be empty or null..!");
+            return false;
+          } else if (pass.length < 8) {
+            alert("Password length must be greater than 8..!");
+            return false;
+          } else if (pass != cpass) {
+            alert("Password and Confirm password are not matched..!");
+            return false;
+          } else {
+            return true;
+          }
+        }
+      </script>
+    </form>
+  </body>
+</html>

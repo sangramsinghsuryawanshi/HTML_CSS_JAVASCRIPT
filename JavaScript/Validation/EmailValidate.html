@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Validation</title>
+    <style>
+        body{
+            height: 100vh;
+            text-align: center;
+            background-color: darkgoldenrod;
+        }
+        form{
+            border: 2px solid black;
+            padding: 20px;
+            margin-top: 10%;
+            box-shadow: 12px 20px 14px;
+            width: 20%;
+            margin-left: 40%;
+            background-color: bisque;
+        }
+        label{
+           font-size: 15px;
+           font-weight: bold; 
+        }
+        input{
+            border: 2px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        button{
+            border: none;
+            padding: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+            background-color: chocolate;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+    </style>
+  </head>
+  <body>
+    <form onsubmit="return myfun()">
+        <h1>Email Validation</h1>
+      <label for="">Email</label><br /><br />
+      <input
+        type="text"
+        id="email"
+        placeholder="Enter your email"
+      /><br /><br />
+      <span id="myspan"></span><br><br>
+      <button type="submit">Login</button>
+
+      <script>
+        function myfun() {
+          var email = document.getElementById("email").value;
+        let x = email.indexOf("@");
+        let y = email.lastIndexOf(".");
+          if (x<1 || y<y+2||y+2>=email.length) {
+            document.getElementById("myspan").innerHTML="Enter valid email";
+            return false;
+          } 
+          else{
+            return true;
+          }
+        }
+      </script>
+    </form>
+  </body>
+</html>

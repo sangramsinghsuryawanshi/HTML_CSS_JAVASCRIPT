@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation Form</title>
+    <style>
+      body {
+        height: 100vh;
+        text-align: center;
+        background-color: darkgoldenrod;
+      }
+      form {
+        border: 2px solid black;
+        padding: 20px;
+        margin-top: 10%;
+        box-shadow: 12px 20px 14px;
+        width: 20%;
+        margin-left: 40%;
+        background-color: bisque;
+      }
+      label {
+        font-size: 15px;
+        font-weight: bold;
+      }
+      input {
+        border: 2px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      button {
+        border: none;
+        padding: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: chocolate;
+        color: white;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+      #myspan {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <form onsubmit="return myfun()">
+      <h1>Login Form</h1>
+      <label for="name">Name</label><br /><br />
+      <input type="text" id="name" placeholder="Enter your name" /><br /><br />
+      
+      <label for="email">Email</label><br /><br />
+      <input type="text" id="email" placeholder="Enter your email" /><br /><br />
+      <span id="myspan"></span><br /><br />
+
+      <label for="password">Password</label><br /><br />
+      <input type="password" id="password" placeholder="Enter your password" required /><br /><br />
+
+      <label for="cpassword">Confirm Password</label><br /><br />
+      <input type="password" id="cpassword" placeholder="Confirm your password" required /><br /><br />
+
+      <button type="submit">Login</button>
+    </form>
+
+    <script>
+      function validatePassword(password) {
+        let hasUppercase = false;
+        let hasLowercase = false;
+        let hasDigit = false;
+        let hasSpecialChar = false;
+
+        for (let i = 0; i < password.length; i++) {
+          const char = password.charAt(i);
+
+          if (char >= 'A' && char <= 'Z') {
+            hasUppercase = true;
+          } else if (char >= 'a' && char <= 'z') {
+            hasLowercase = true;
+          } else if (char >= '0' && char <= '9') {
+            hasDigit = true;
+          } else {
+            hasSpecialChar = true; 
+          }
+          if (hasUppercase && hasLowercase && hasDigit && hasSpecialChar) {
+            return true;
+          }
+        }
+        return false; 
+      }
+
+      function myfun() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var pass = document.getElementById("password").value;
+        var cpass = document.getElementById("cpassword").value;
+
+        if (name == null || name.trim() == "") {
+          alert("Name should not be empty or null..!");
+          return false;
+        }
+
+        let x = email.indexOf("@");
+        let y = email.lastIndexOf(".");
+        if (x < 1 || y < x + 2 || y + 2 >= email.length) {
+          document.getElementById("myspan").innerHTML = "Enter a valid email address";
+          return false;
+        } else {
+          document.getElementById("myspan").innerHTML = ""; 
+        }
+
+        if (!validatePassword(pass)) {
+          alert("Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one digit, and one special character.");
+          return false;
+        }
+
+        if (pass !== cpass) {
+          alert("Password and Confirm password do not match..!");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>
