@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo JQuery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        body{
+            text-align: center;
+            height: 100vh;
+            background-color: darkkhaki;
+            position: absolute;
+        }
+        h1{
+            color: wheat;
+        }
+        button{
+            color: white;
+            background-color: black;
+            border: none;
+            margin-top: 1%;
+
+        }
+    </style>
+</head>
+<body>
+        <h1>JQuery Animation</h1>
+        <p>Hello JQuery..........!</p>
+        <table border="2">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Pass</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>abc</td>
+                <td>1abc</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>abc</td>
+                <td>1abc</td>
+
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>abc</td>
+                <td>1abc</td>
+            </tr>
+        </table>
+        <button onclick="animate1()">Click</button>
+        <script>
+            function animate1(){
+               var a= $("tr:odd");
+               a.hide();
+               a.animate("slow");
+            }
+        </script>
+</body>
+</html>
