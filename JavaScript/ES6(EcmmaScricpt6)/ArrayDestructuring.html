@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ES6 || Array Destructuring</title>
+  </head>
+  <body>
+    <script>
+      let arr = [1, 2, 3, 4, 5];
+      document.write("Simple Way <br>");
+      let a = arr[0];
+      let b = arr[1];
+      let c = arr[2];
+      let d = arr[3];
+      let e = arr[4];
+      document.write(a + " " + b + " " + c + " " + d + " " + c + " ");
+      document.write("<br>Array Destructuring Way <br>");
+      let[a1,b1,c1,d1,e1]=arr;
+      document.write(a1 + " " + b1 + " " + c1 + " " + d1 + " " + c1 + " ");
+
+      document.write("<br>Swapping two array<br>");
+      for(let x of arr){
+        let temp=x;
+        x==x+1;
+        x+1==temp;
+
+      }
+      document.write(a+" "+b);
+    </script>
+  </body>
+</html>

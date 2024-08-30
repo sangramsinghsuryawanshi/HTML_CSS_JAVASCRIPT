@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Update|| Arrow Function</title>
+    <style>
+        button{
+            padding: 20px;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            background-color: black;
+            transition: ease 3s;
+        }
+        button:hover{
+            transform: scale(1);
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="abc()">For Old</button>
+    <button onclick="x()">For New</button>
+    <script>
+        function abc(){
+            document.write("Using Function...!");
+            return true;
+        }
+        var x=()=>document.write("Using Arrow Function...!");
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Update|| Arrow Function</title>
+    <style>
+        button{
+            padding: 3px;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            background-color: black;
+            transition: ease 1s;
+        }
+        button:hover{
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <h3>Arithmetic operation</h3>
+    <button onclick="add(4,6)">Addtion</button>
+    <button onclick="sub(6,2)">Substraction</button>
+    <button onclick="mul(5,7)">Multiplication</button>
+    <button onclick="div(16,2)">Division</button>
+    <script>
+        var add=(a,b)=>document.write("Addtion of "+a+" and "+b+" is: "+(a+b));
+        var sub=(a,b)=>document.write("Substraction of "+a+" and "+b+" is: "+(a-b));
+        var mul=(a,b)=>document.write("Multiplication of "+a+" and "+b+" is: "+(a*b));
+        var div=(a,b)=>document.write("Division of "+a+" and "+b+" is: "+(a/b));
+    </script>
+</body>
+</html>
