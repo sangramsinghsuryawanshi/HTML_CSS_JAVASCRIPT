@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 320px; /* Adjusted width for better fit */
+            position: relative;
+            overflow: hidden;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-wrapper {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+            width: 200%; /* Ensure both forms fit within the wrapper */
+        }
+        .form {
+            width: 50%; /* Each form takes up half of the wrapper's width */
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: calc(100% - 22px); /* Adjust width for padding and border */
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .toggle-buttons {
+            text-align: center;
+            margin: 10px;
+        }
+        .toggle-buttons button {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="toggle-buttons">
+            <button onclick="showLogin()">Login</button>
+            <button onclick="showRegister()">Register</button>
+        </div>
+        <div class="form-wrapper" id="formWrapper">
+            <!-- Login Form -->
+            <div class="form" id="loginForm">
+                <h2>Login</h2>
+                <form action="/login" method="post">
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+            <!-- Registration Form -->
+            <div class="form" id="registerForm">
+                <h2>Register</h2>
+                <form action="/register" method="post">
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                    <input type="submit" value="Register">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showLogin() {
+            document.getElementById('formWrapper').style.transform = 'translateX(0)';
+        }
+
+        function showRegister() {
+            document.getElementById('formWrapper').style.transform = 'translateX(-50%)';
+        }
+
+        // Show login form by default
+        showLogin();
+    </script>
+</body>
+</html>
